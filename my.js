@@ -1,7 +1,7 @@
 
 function testGS(){
 
-    const url = "https://script.googleusercontent.com/macros/echo?user_content_key=8EM6DE0xoDdOVW2BpXDHL2wRQCaSDQmo9eEPX_863DkZoYPlVgRKgoFHwOV2737CdiFC4U3RxT4MQCnWl-q4rkkZ38sqi1sRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCDqD5Ortf-ao6k8iyFbcMdlvIjXdt5bDNheCUuFLIv9DtkWvmlu7qsFFJ1hmcFbfkqhI51p3q1_&lib=MmC5Da_sLMRlk6ukYyMdLc3_34l3wdlqp";
+    const url = "https://script.google.com/macros/s/AKfycbzPuJ-Vw04gTF14pB3UO_NvgGqvkzsQwt6lBH1ioifhd6H6yqc/exec";
     
     fetch(url)
         .then(d => d.json())
@@ -11,4 +11,27 @@ function testGS(){
 
 } 
 
-document.getElementById("btn").addEventListener("click",testGS);
+
+
+function addGS() {
+
+    const url = "https://script.google.com/macros/s/AKfycbzPuJ-Vw04gTF14pB3UO_NvgGqvkzsQwt6lBH1ioifhd6H6yqc/exec";
+
+    fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //credentials: 'omit', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow', // manual, *follow, error
+        //referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify({name:"Olivia"}) // body data type must match "Content-Type" header
+    });
+
+}
+
+document.getElementById("btn2").addEventListener("click", addGS);
+
+document.getElementById("btn").addEventListener("click", testGS);
